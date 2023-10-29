@@ -1,17 +1,20 @@
-import React, { useReducer } from "react";
+import { useReducer } from "react";
 
-type State = {
+type requestReducerState = {
   isRequestInProgress: boolean;
-  requestStep: "idle" | "start" | "pending" | "finished";
+  requestStep: "start" | "pending" | "finished" | "idle";
 };
 
-type Action =
+type requestReducerAction =
   | { type: "START_REQUEST" }
   | { type: "PENDING_REQUEST" }
   | { type: "FINISH_REQUEST" }
   | { type: "RESET_REQUEST" };
 
-function requestReducer(state: State, action: Action): State {
+export const requestReducer = (
+  state: requestReducerState,
+  action: requestReducerAction
+): requestReducerState => {
   switch (action.type) {
     case "START_REQUEST":
       return { ...state, isRequestInProgress: true, requestStep: "start" };
@@ -24,14 +27,14 @@ function requestReducer(state: State, action: Action): State {
     default:
       return state;
   }
-}
+};
 
-const initialState: State = {
+const initialState: requestReducerState = {
   isRequestInProgress: false,
   requestStep: "start",
 };
 
-export function RequestComponent() {
+export const RequestComponent = () => {
   const [requestState, requestDispatch] = useReducer(
     requestReducer,
     initialState
@@ -60,6 +63,4 @@ export function RequestComponent() {
       <p>Стан запиту: {requestState.requestStep}</p>
     </div>
   );
-}
-
-export default RequestComponent;
+};

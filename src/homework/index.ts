@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { send } from "process";
+import { useEffect, useImperativeHandle } from "react";
 
 export { App } from "../App";
-
 
 //* Давайте трохи розберемося у цих типах для children.
 
@@ -19,11 +19,20 @@ export { App } from "../App";
 // Это не работает, потому что "Hello, world!" - это строка, а не элемент
 // <Panel>Hello, world!</Panel>
 
-
 //? =============================Типізація хуків==================
 
 //* useState
 
-function name() {
-    const [counter,setCounter] = useState<string>('')
-}
+// function name() {
+//     const [counter,setCounter] = useState<string>('')
+// }
+
+//*useImperativeHandle();
+
+//*Не потрібно типізувати такі хуки як
+
+//?useEffect,
+//?useMemo,
+//? useCallback,
+
+// досить прямолінійні і зазвичай вимагають додаткової роботи.
