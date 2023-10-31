@@ -1,6 +1,3 @@
-import { send } from "process";
-import { useEffect, useImperativeHandle } from "react";
-
 export { App } from "../App";
 
 //* Давайте трохи розберемося у цих типах для children.
@@ -31,8 +28,14 @@ export { App } from "../App";
 
 //*Не потрібно типізувати такі хуки як
 
-//?useEffect,
-//?useMemo,
+//? useEffect,
+//? useMemo,
 //? useCallback,
 
 // досить прямолінійні і зазвичай вимагають додаткової роботи.
+
+//! ========Першочерговість типізування компонентів =========
+
+//* 1. Типізація state
+
+//* 2. Типізація пропсів

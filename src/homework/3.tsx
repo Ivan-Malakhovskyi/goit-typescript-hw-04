@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState, ChangeEvent } from "react";
 
 export const FormComponent = () => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string>("");
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };
 

@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, ReactElement } from "react";
 
 type observerProps = {
-  children: React.ReactElement;
+  children: ReactElement;
   onContentEndVisible(): void;
 };
 
